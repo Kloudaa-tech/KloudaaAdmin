@@ -16,20 +16,26 @@
         <h2 class="text-dark">Login</h2>
         <div class="col-12 mt-4">
             <input type="email" name="email" id="email" class="form-control border-1 border-secondary py-2 px-3"
-                placeholder="Email*">
+                placeholder="Email*" required>
         </div>
         <div class="col-12 mt-3">
             <input type="password" name="password" id="password"
-                class="form-control border-1 border-secondary py-2 px-3" placeholder="Password*">
+                class="form-control border-1 border-secondary py-2 px-3" placeholder="Password*" required>
         </div>
         <div class="col-12 mt-4 text-center">
-            <button type="submit" class="col-10 col-md-8 col-lg-6 btn btn-dark py-2">Login</button>
+            <button type="button" onclick="submitForm(event)" class="col-10 col-md-8 col-lg-6 btn btn-dark py-2">Login</button>
         </div>
     </form>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script>
+        function submitForm(event){
+            event.preventDefault()
+            window.location.replace('dashboard.html')
+        }
+    </script>
 </body>
 
 </html>
