@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messages | Kloudaa Admin</title>
+    <title>Add Message | Kloudaa Admin</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/ionicons.min.js"
@@ -22,7 +22,7 @@
                 </span>
             </button>
             <div class="fs-6 text-light ms-2 me-auto">Kloudaa Admin</div>
-            <div class="flex ms-auto text-light">
+            <div class="d-flex ms-auto text-light">
                 <img src="" alt="" id="admin_profile" class="rounded-pill pe-1" width="30">
                 <span class="text-light" id="admin_username" style="font-size: 14px;"></span>
             </div>
@@ -53,6 +53,13 @@
                             <a class="nav-link flex align-items-center" href="messages.html">
                                 <ion-icon name="chatbox-ellipses"></ion-icon>
                                 <span class="ms-2">Broadcast messages</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <a class="nav-link flex align-items-center" href="subscription.html">
+                                <ion-icon name="pricetags"></ion-icon>
+                                <span class="ms-2">Subscription Plans</span>
                             </a>
                         </li>
                         <li class="nav-item py-1 px-3 rounded-3 mb-3"
@@ -89,18 +96,20 @@
                     </div>
                     <div class="mb-3 col-12">
                         <label for="broadcast-file" class="col-12">
-                            <div class="col-12 py-5 bg-light rounded-3" id="drop-area" ondragover="handleDragOver(event)"
-                                ondrop="handleDrop(event)">
+                            <div class="col-12 py-5 bg-light rounded-3" id="drop-area"
+                                ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
                                 <div class="py-3 col-12 text-center">
                                     <div class="d-flex justify-content-center align-items-center mx-auto mb-3 text-secondary rounded-3"
                                         style="width: 80px; height: 80px; border: 2px dashed #DDD;">
                                         <h1>&plus;</h1>
                                     </div>
-                                    <span class="text-secondary" id="file-name">Drag and drop file of Images or Video</span>
+                                    <span class="text-secondary" id="file-name">Drag and drop file of Images or
+                                        Video</span>
                                 </div>
                             </div>
                         </label>
-                        <input type="file" name="broadcast-file" id="broadcast-file" class="d-none" onchange="setValues(this.files[0])">
+                        <input type="file" name="broadcast-file" id="broadcast-file" class="d-none"
+                            onchange="setValues(this.files[0])">
                     </div>
                     <div class="mb-4 col-12">
                         <span class="fw-medium fs-5">Select Option</span><br>
@@ -177,7 +186,7 @@
             setValues(files[0]);
         }
 
-        function setValues(file){
+        function setValues(file) {
             var displayedName = file ? file.name : 'No file selected'
             selectedFile = file
             document.querySelector('#broadcast-file').files[0] = file;
