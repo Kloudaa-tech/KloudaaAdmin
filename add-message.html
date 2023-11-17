@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | Kloudaa Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/ionicons.min.js"
+        integrity="sha512-8O7VIjJxO2P/Vfm34bYnEbPwocNkwUQdzJCYooCDWP9MT4GpPw5Ktmk9NxVyWfrzDlXnbCsZzSUR81Etc6gv0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="position-relative" style="min-height: 100vh; background: #F5F5F5;">
+    <nav class="navbar bg-dark sticky-top">
+        <div class="container-fluid px-3 py-2">
+            <button class="navbar-toggler border-0 outline-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="fs-4 text-light">
+                    <ion-icon name="menu"></ion-icon>
+                </span>
+            </button>
+            <div class="fs-6 text-light ms-2 me-auto">Kloudaa Admin</div>
+            <div class="flex ms-auto text-light">
+                <img src="" alt="" id="admin_profile" class="rounded-pill pe-1" width="30">
+                <span class="text-light" id="admin_username" style="font-size: 14px;"></span>
+            </div>
+            <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <a class="nav-link flex align-items-center" href="dashboard.html">
+                                <ion-icon name="home"></ion-icon>
+                                <span class="ms-2">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <a class="nav-link flex align-items-center" href="users.html">
+                                <ion-icon name="people"></ion-icon>
+                                <span class="ms-2">Kloudaa users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <a class="nav-link flex align-items-center" href="messages.html">
+                                <ion-icon name="chatbox-ellipses"></ion-icon>
+                                <span class="ms-2">Broadcast messages</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <button class="nav-link flex align-items-center text-danger" onclick="logout()">
+                                <ion-icon name="log-out"></ion-icon>
+                                <span class="ms-2">Logout</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="p-3 p-md-5">
+        <div class="col-12 p-3 rounded-2 bg-white">
+            <div class="fw-medium fs-5 mb-4 col-12 d-flex justify-content-between align-items-center">
+                Add Broadcast Message
+                <a href="messages.html" class="text-dark me-2">
+                    <ion-icon name="close-sharp" class="fs-4 mt-1"></ion-icon>
+                </a>
+            </div>
+            <div class="col-12 mt-4">
+                <form action="" method="post" class="col-12">
+                    <div class="mb-3 col-12">
+                        <label for="" class="fw-medium text-secondary"><small>Title</small></label>
+                        <input type="text" class="bg-light form-control col-12 mt-2">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="" class="fw-medium text-secondary"><small>Message (optional)</small></label>
+                        <textarea name="message" id="message" class="bg-light form-control col-12 mt-2"
+                            rows="7"></textarea>
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="broadcast-file" class="col-12">
+                            <div class="col-12 py-5 bg-light rounded-3" id="drop-area" ondragover="handleDragOver(event)"
+                                ondrop="handleDrop(event)">
+                                <div class="py-3 col-12 text-center">
+                                    <div class="d-flex justify-content-center align-items-center mx-auto mb-3 text-secondary rounded-3"
+                                        style="width: 80px; height: 80px; border: 2px dashed #DDD;">
+                                        <h1>&plus;</h1>
+                                    </div>
+                                    <span class="text-secondary" id="file-name">Drag and drop file of Images or Video</span>
+                                </div>
+                            </div>
+                        </label>
+                        <input type="file" name="broadcast-file" id="broadcast-file" class="d-none" onchange="setValues(this.files[0])">
+                    </div>
+                    <div class="mb-4 col-12">
+                        <span class="fw-medium fs-5">Select Option</span><br>
+                        <span class="fs-6 text-secondary">Select or choose both medium or way to broadcast
+                            message</span>
+                        <div class="mt-3 col-12">
+                            <div class="d-flex col-12 align-items-center">
+                                <input type="checkbox" name="" id="" class="me-2">
+                                <label for="" class="fw-medium text-secondary">In app notification</label>
+                            </div>
+                            <div class="d-flex col-12 align-items-center">
+                                <input type="checkbox" name="" id="" class="me-2">
+                                <label for="" class="fw-medium text-secondary">Pop Notification</label>
+                            </div>
+                            <div class="d-flex col-12 align-items-center">
+                                <input type="checkbox" name="" id="" class="me-2">
+                                <label for="" class="fw-medium text-secondary">Push notification</label>
+                            </div>
+                            <div class="d-flex col-12 align-items-center">
+                                <input type="checkbox" name="" id="" class="me-2">
+                                <label for="" class="fw-medium text-secondary">Email notification</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="button" class="btn btn-outline-dark px-3 rounded-pill">Cancel</button>
+                        <button type="submit" class="btn btn-dark px-3 rounded-pill ms-2">Save now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <style>
+        #drop-area {
+            border: 2px dashed #DDD;
+        }
+    </style>
+
+    <script>
+        var selectedFile = null;
+        function handleDragOver(event) {
+            event.preventDefault();
+            // Add a visual cue to indicate a draggable area
+            document.getElementById('drop-area').style.border = '2px dashed #4CAF50';
+        }
+
+        function handleDrop(event) {
+            event.preventDefault();
+
+            // Reset the border style
+            document.getElementById('drop-area').style.border = '2px dashed #ccc';
+
+            // Access the dropped files
+            var files = event.dataTransfer.files;
+
+            // Process the dropped files (e.g., display file names)
+            handleFiles(files);
+        }
+
+        function handleFiles(files) {
+            var fileNames = [];
+
+            // Iterate through the files
+            for (var i = 0; i < files.length; i++) {
+                fileNames.push(files[i].name);
+            }
+
+            // Display the file names (you can customize this part)
+            document.querySelector('#file-name').textContent = fileNames.join('\n');
+            setValues(files[0]);
+        }
+
+        function setValues(file){
+            var displayedName = file ? file.name : 'No file selected'
+            selectedFile = file
+            document.querySelector('#broadcast-file').files[0] = file;
+            document.querySelector('#file-name').textContent = displayedName;
+        }
+    </script>
+</body>
+
+</html>

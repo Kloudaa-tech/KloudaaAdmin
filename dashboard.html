@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kloudaa Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.4/ionicons.min.js"
+        integrity="sha512-8O7VIjJxO2P/Vfm34bYnEbPwocNkwUQdzJCYooCDWP9MT4GpPw5Ktmk9NxVyWfrzDlXnbCsZzSUR81Etc6gv0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="position-relative" style="min-height: 100vh; background: #F5F5F5;">
+    <nav class="navbar bg-dark sticky-top">
+        <div class="container-fluid px-3 py-2">
+            <button class="navbar-toggler border-0 outline-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="fs-4 text-light">
+                    <ion-icon name="menu"></ion-icon>
+                </span>
+            </button>
+            <div class="fs-6 text-light ms-2 me-auto">Kloudaa Admin</div>
+            <div class="flex ms-auto text-light">
+                <img src="" alt="" id="admin_profile" class="rounded-pill pe-1" width="30">
+                <span class="text-light" id="admin_username" style="font-size: 14px;"></span>
+            </div>
+            <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <a class="nav-link flex align-items-center" href="dashboard.html">
+                                <ion-icon name="home"></ion-icon>
+                                <span class="ms-2">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <a class="nav-link flex align-items-center" href="users.html">
+                                <ion-icon name="people"></ion-icon>
+                                <span class="ms-2">Kloudaa users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <a class="nav-link flex align-items-center" href="messages.html">
+                                <ion-icon name="chatbox-ellipses"></ion-icon>
+                                <span class="ms-2">Broadcast messages</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-1 px-3 rounded-3 mb-3"
+                            style="background: #00000005; border: 1px solid #00000010;">
+                            <button class="nav-link flex align-items-center text-danger" onclick="logout()">
+                                <ion-icon name="log-out"></ion-icon>
+                                <span class="ms-2">Logout</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="col-12 row m-0 py-4 px-3 g-2">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card col-12 py-2 px-3">
+                <small class="text-secondary fw-medium">Total earnings</small>
+                <span class="fs-3 text-dark fw-semibold">0</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card col-12 py-2 px-3">
+                <small class="text-secondary fw-medium">Number of users</small>
+                <span class="fs-3 text-dark fw-semibold">0</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card col-12 py-2 px-3">
+                <small class="text-secondary fw-medium">Daily active users</small>
+                <span class="fs-3 text-dark fw-semibold">0</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card col-12 py-2 px-3">
+                <small class="text-secondary fw-medium">Users online</small>
+                <span class="fs-3 text-dark fw-semibold">0</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card col-12 py-2 px-3">
+                <small class="text-secondary fw-medium">Premium users</small>
+                <span class="fs-3 text-dark fw-semibold">0</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card col-12 py-2 px-3">
+                <small class="text-secondary fw-medium">Freemium users</small>
+                <span class="fs-3 text-dark fw-semibold">0</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="card col-12 py-2 px-3">
+                <small class="text-secondary fw-medium">Monthly active users</small>
+                <span class="fs-3 text-dark fw-semibold">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 row m-0 py-4 px-3 g-2">
+        <div class="col-12 col-md-7 col-lg-9">
+            <div class="col-12 card p-3">
+                <div id="chart"></div>
+            </div>
+        </div>
+        <div class="col-12 col-md-5 col-lg-3">
+            <div class="col-12 card h-100 p-3">
+                <span class="text-dark fw-medium text-center">Premium subscribers<br>by country</span>
+                <ul class="list-group border-0 mt-3 mt-md-4">
+                    <li class="list-group-item border-0 d-flex align-items-center">
+                        <ion-icon name="ellipse" style="font-size: 11px; color: firebrick;"></ion-icon>
+                        <span class="ms-2">China</span>
+                        <small class="ms-auto">123,456</small>
+                    </li>
+                    <li class="list-group-item border-0 d-flex align-items-center">
+                        <ion-icon name="ellipse" style="font-size: 11px; color: navy;"></ion-icon>
+                        <span class="ms-2">Russia</span>
+                        <small class="ms-auto">23,456</small>
+                    </li>
+                    <li class="list-group-item border-0 d-flex align-items-center">
+                        <ion-icon name="ellipse" style="font-size: 11px; color: brown;"></ion-icon>
+                        <span class="ms-2">South Africa</span>
+                        <small class="ms-auto">54,321</small>
+                    </li>
+                    <li class="list-group-item border-0 d-flex align-items-center">
+                        <ion-icon name="ellipse" style="font-size: 11px; color: yellowgreen;"></ion-icon>
+                        <span class="ms-2">Taiwan</span>
+                        <small class="ms-auto">1,234,567</small>
+                    </li>
+                    <li class="list-group-item border-0 d-flex align-items-center">
+                        <ion-icon name="ellipse" style="font-size: 11px; color: red;"></ion-icon>
+                        <span class="ms-2">Japan</span>
+                        <small class="ms-auto">100,456</small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-4 px-3">
+        <div class="text-dark fw-medium mb-3">Active/Daily users by country</div>
+        <div class="card p-3">
+            <div class="col-12 row m-0 g-2" style="place-items: center;">
+                <div class="col-12 col-md-6 col-lg-8 p-3">
+                    <!-- MAP -->
+                    <img src="assets/map.png" alt="map" class="col-12">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <ul class="list-group col-12 col-md-9 m-0 border-0 mt-3 mt-md-0">
+                        <li class="list-group-item py-2 border-0 d-flex align-items-center">
+                            <ion-icon name="ellipse" style="font-size: 11px; color: firebrick;"></ion-icon>
+                            <span class="ms-2">China</span>
+                            <small class="ms-auto">123,456</small>
+                        </li>
+                        <li class="list-group-item py-2 border-0 d-flex align-items-center">
+                            <ion-icon name="ellipse" style="font-size: 11px; color: navy;"></ion-icon>
+                            <span class="ms-2">Russia</span>
+                            <small class="ms-auto">23,456</small>
+                        </li>
+                        <li class="list-group-item py-2 border-0 d-flex align-items-center">
+                            <ion-icon name="ellipse" style="font-size: 11px; color: brown;"></ion-icon>
+                            <span class="ms-2">South Africa</span>
+                            <small class="ms-auto">54,321</small>
+                        </li>
+                        <li class="list-group-item py-2 border-0 d-flex align-items-center">
+                            <ion-icon name="ellipse" style="font-size: 11px; color: yellowgreen;"></ion-icon>
+                            <span class="ms-2">Taiwan</span>
+                            <small class="ms-auto">1,234,567</small>
+                        </li>
+                        <li class="list-group-item py-2 border-0 d-flex align-items-center">
+                            <ion-icon name="ellipse" style="font-size: 11px; color: red;"></ion-icon>
+                            <span class="ms-2">Japan</span>
+                            <small class="ms-auto">100,456</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script>
+        var options = {
+            series: [{
+                name: "Session Duration",
+                data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+            },
+            {
+                name: "Page Views",
+                data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+            },
+            {
+                name: 'Total Visits',
+                data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
+            }
+            ],
+            chart: {
+                height: 350,
+                type: 'line',
+                zoom: {
+                    enabled: false
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                width: 4,
+                curve: 'smooth',
+            },
+            title: {
+                text: 'Revenue',
+                align: 'left',
+                style: {
+                    fontWeight: '600',
+                    color: '#121212'
+                },
+            },
+            legend: {
+                tooltipHoverFormatter: function (val, opts) {
+                    return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
+                }
+            },
+            markers: {
+                size: 0,
+                hover: {
+                    sizeOffset: 6
+                }
+            },
+            xaxis: {
+                type: 'datetime',
+                categories: ['Jan 2023', 'Feb 2023', 'Mar 2023', 'Apr 2023', 'May 2023', 'Jun 2023', 'Jul 2023', 'Aug 2023', 'Sept 2023',
+                    'Oct 2023', 'Nov 2023', 'Dec 2023'
+                ],
+            },
+            tooltip: {
+                y: [
+                    {
+                        title: {
+                            formatter: function (val) {
+                                return val + " (mins)"
+                            }
+                        }
+                    },
+                    {
+                        title: {
+                            formatter: function (val) {
+                                return val + " per session"
+                            }
+                        }
+                    },
+                    {
+                        title: {
+                            formatter: function (val) {
+                                return val;
+                            }
+                        }
+                    }
+                ]
+            },
+            grid: {
+                borderColor: '#f5f5f5',
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+</body>
+
+</html>
