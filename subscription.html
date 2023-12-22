@@ -76,6 +76,59 @@
     </nav>
 
     <div class="p-3 col-12">
+        <div class="col-12 col-md-7 col-lg-5 mx-auto">
+            <h5>Manage Subscription</h5>
+        </div>
+        <form action="" method="post" class="row g-3 col-12 col-md-7 col-lg-5 mx-auto py-4 px-2">
+            <div class="col-12 mt-4">
+                <label for="individual_cost_m" class="fw-semibold">Individual Cost <small>(Monthly)</small><span
+                        class="text-danger">*</span></label>
+                <div class="col-12 text-secondary">
+                    <small>Set the price of individual subscription plan</small>
+                </div>
+                <input type="number" name="individual_cost_m" id="individual_cost_m" class="form-control mt-2">
+            </div>
+
+            <div class="col-12 mt-4">
+                <label for="shared_cost_m" class="fw-semibold">Shared Cost <small>(Monthly)</small><span
+                        class="text-danger">*</span></label>
+                <div class="col-12 text-secondary">
+                    <small>Set the price of shared members of a shared subscription plan</small>
+                </div>
+                <input type="number" name="shared_cost_m" id="shared_cost_m" class="form-control mt-2">
+            </div>
+
+            <div class="col-12 mt-4">
+                <label for="individual_cost_y" class="fw-semibold">Individual Cost <small>(Yearly)</small><span
+                        class="text-danger">*</span></label>
+                <div class="col-12 text-secondary">
+                    <small>Set the price of individual subscription plan</small>
+                </div>
+                <input type="number" name="individual_cost_y" id="individual_cost_y" class="form-control mt-2">
+            </div>
+
+            <div class="col-12 mt-4">
+                <label for="shared_cost_y" class="fw-semibold">Shared Cost <small>(Yearly)</small><span
+                        class="text-danger">*</span></label>
+                <div class="col-12 text-secondary">
+                    <small>Set the price of shared members of a shared subscription plan</small>
+                </div>
+                <input type="number" name="shared_cost_y" id="shared_cost_y" class="form-control mt-2">
+            </div>
+
+            <div class="col-12 mt-4">
+                <label for="max_members" class="fw-semibold">Maximum Shared Members<span
+                        class="text-danger">*</span></label>
+                <div class="col-12 text-secondary">
+                    <small>Set the maximum number of members allowed to share a shared subscription plan</small>
+                </div>
+                <input type="number" name="max_members" id="max_members" class="form-control mt-2">
+            </div>
+
+            <div class="col-12 text-center mt-4">
+                <button type="submit" class="btn btn-dark col-10 col-md-6">Save Settings</button>
+            </div>
+        </form>
     </div>
 
     <script src="js/jquery.min.js"></script>
