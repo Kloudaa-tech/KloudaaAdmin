@@ -120,7 +120,7 @@
     <div class="col-12 pb-4 px-3">
         <div class="w-full card p-3 p-md-4 rounded-3">
             <div class="d-md-flex align-items-center">
-                <span style="min-width: fit-content;" class="text-secondary fw-medium">List of Orders</span>
+                <span style="min-width: fit-content;" class="text-secondary fw-medium">List of Users</span>
                 <div class="w-100 d-flex align-items-center">
                     <form action="" method="get" class="ms-auto">
                         <div class="card px-2">
@@ -131,52 +131,10 @@
                             </div>
                         </div>
                     </form>
-                    <div class="dropdown">
-                        <button class="btn btn-outline-secondary ms-2 dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <ion-icon name="options-outline" class="fs-6 mt-1"></ion-icon>
-                        </button>
-                        <ul class="dropdown-menu border-0 shadow-lg p-2" style="min-width: 280px; z-index: 10000;">
-                            <li class="dropdown-item py-2">
-                                <span class="fw-medium fs-6">Filter Search</span>
-                            </li>
-                            <li class="dropdown-item"></li>
-                            <li class="p-2">
-                                <button class="d-flex align-items-center btn col-12" style="border: 1px solid #EEE;"
-                                    data-bs-toggle="modal" data-bs-target="#countryFilterModal">
-                                    Country
-                                    <ion-icon name="chevron-down-outline" class="ms-auto"></ion-icon>
-                                </button>
-                            </li>
-                            <li class="p-2 d-flex align-items-center">
-                                <input type="number" name="" id="gender" class="d-none">
-                                <div class="d-flex align-items-center btn btn-outline-primary rounded-pill me-2">
-                                    <ion-icon name="male-outline" class="me-2"></ion-icon>
-                                    Male
-                                </div>
-                                <div class="d-flex align-items-center btn btn-outline-dark rounded-pill">
-                                    <ion-icon name="female-outline" class="me-2"></ion-icon>
-                                    Female
-                                </div>
-                            </li>
-                            <li>
-                                <a class="dropdown-item py-2 d-flex align-items-center" href="#">
-                                    <input type="checkbox" name="" id="" class="me-2">
-                                    Premium User
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item py-2 d-flex align-items-center" href="#">
-                                    <input type="checkbox" name="" id="" class="me-2">
-                                    Freemium User
-                                </a>
-                            </li>
-                            <li class="dropdown-item"></li>
-                            <div class="py-2 text-center">
-                                <button class="btn btn-dark rounded-pill">Filter Results</button>
-                            </div>
-                        </ul>
-                    </div>
+                    <button class="btn btn-outline-secondary ms-2" type="button" data-bs-toggle="modal"
+                        data-bs-target="#filterModal">
+                        <ion-icon name="options-outline" class="fs-6 mt-1"></ion-icon>
+                    </button>
                 </div>
             </div>
 
@@ -188,7 +146,8 @@
                             <th class="fw-medium" style="font-size: 14px;" scope="col">User's Email</th>
                             <th class="fw-medium" style="font-size: 14px;" scope="col">Country</th>
                             <th class="fw-medium" style="font-size: 14px;" scope="col">Gender</th>
-                            <th class="fw-medium" style="font-size: 14px;" scope="col">Status</th>
+                            <th class="fw-medium" style="font-size: 14px;" scope="col">Subscription</th>
+                            <th class="fw-medium" style="font-size: 14px;" scope="col">Subscription Type</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -206,6 +165,9 @@
                                 <span class="badge rounded-pill text-warning"
                                     style="background: #FFC10720;">Premium</span>
                             </td>
+                            <td>
+                                <span class="badge rounded-pill text-success">Shared</span>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -221,9 +183,89 @@
                                 <span class="badge rounded-pill text-primary"
                                     style="background: #0D84FD15;">Freemium</span>
                             </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex ms-auto text-light">
+                                    <img src="assets/avatar.png" alt="" class="rounded-pill pe-2" width="35">
+                                    <span class="text-dark">Username</span>
+                                </div>
+                            </td>
+                            <td>user.mail@gmail.com</td>
+                            <td>Nigeria</td>
+                            <td>Male</td>
+                            <td>
+                                <span class="badge rounded-pill text-warning"
+                                    style="background: #FFC10720;">Premium</span>
+                            </td>
+                            <td>
+                                <span class="badge rounded-pill text-info">Individual</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- FILTERS -->
+    <!-- COUNTRY FILTER -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="modal-title fs-6" id="filterModalLabel">Filter Search</h1>
+                        <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                            <ion-icon name="chevron-down-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <ul class="list-group border-0 p-2" style="min-width: 280px; z-index: 10000;">
+                        <li class="list-group-item p-2">
+                            <button class="d-flex align-items-center btn col-12" style="border: 1px solid #EEE;"
+                                data-bs-toggle="modal" data-bs-target="#countryFilterModal">
+                                Country
+                                <ion-icon name="chevron-down-outline" class="ms-auto"></ion-icon>
+                            </button>
+                        </li>
+                        <li class="list-group-item p-2 d-flex align-items-center">
+                            <input type="number" name="" id="gender" class="d-none">
+                            <div class="d-flex align-items-center btn btn-outline-primary rounded-pill me-2">
+                                <ion-icon name="male-outline" class="me-2"></ion-icon>
+                                Male
+                            </div>
+                            <div class="d-flex align-items-center btn btn-outline-dark rounded-pill">
+                                <ion-icon name="female-outline" class="me-2"></ion-icon>
+                                Female
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <a class="dropdown-item py-2 d-flex align-items-center" href="#">
+                                <input type="checkbox" name="" id="" class="me-2">
+                                Shared Premium User
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a class="dropdown-item py-2 d-flex align-items-center" href="#">
+                                <input type="checkbox" name="" id="" class="me-2">
+                                Individual Premium User
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a class="dropdown-item py-2 d-flex align-items-center" href="#">
+                                <input type="checkbox" name="" id="" class="me-2">
+                                Freemium User
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="py-2 mt-3 text-center">
+                        <button class="btn btn-dark rounded-pill">Filter Results</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -240,7 +282,7 @@
                             <ion-icon name="chevron-down-outline"></ion-icon>
                         </button>
                     </div>
-    
+
                     <!-- COUNTRY SEARCH BOX -->
                     <input type="search" name="" id="" placeholder="Search for Country"
                         class="form-control border-0 my-3 py-3 px-4" style="background-color: #F5F5F5;">
